@@ -1,26 +1,26 @@
 require 'rest_client'
 require 'json'
 
-answer 
+answer
 sleep 2
 say "welcome to the tropo ham radio call sign lookup application"
-
+say "spell the call sign phonetically. I will repeat it, but you can interrupt. say finish when done or restart to start over. "
 callsign = ""
 callsigntext = ""
 
 loop do
 
-  result = ask "spell the callsign phonetically. say stop when done or restart to start over", {
-      :choices => "alpha,bravo,charlie,delta,echo,foxtrot,golf,hotel,india,juliette,kilo,lima,mike,november,oscar,papa,quebec,romeo,sierra,tango,uniform,victor,whiskey,xray,yankee,zulu,one,two,three,four,five,six,seven,eight,nine,zero,stop,restart"}
+  result = ask "#{callsigntext}", {
+      :bargein => true,
+      :choices => "alpha, bravo, charlie, delta, echo, foxtrot, golf, hotel, india, juliette, kilo, lima, mike, november, oscar, papa, quebec, romeo, sierra, tango, uniform, victor, whiskey, xray, yankee, zulu, one, two, three, four, five, six, seven, eight, nine, zero, finish, restart"}
 
-  if result.value == "stop"
+  if result.value == "finish"
     break
   elsif result.value == "restart"
     callsign = ""
     callsigntext = ""
   else
-    callsigntext = callsigntext + " " + result.value 
-    say "so far you entered #{callsigntext}"
+    callsigntext = callsigntext + " " + result.value
 
     letter = case result.value
      when "alpha" then "a"
@@ -63,7 +63,7 @@ loop do
 
     if letter
       callsign = callsign + letter
-    end 
+    end
 
   end
 
@@ -76,6 +76,3 @@ say callsigntext + "belongs to "
 say data["name"]
 say "in " + data["address"]["line2"]
 say "and holds a " + data["current"]["operClass"] + " license"
-
-
-
