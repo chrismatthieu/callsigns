@@ -1,0 +1,11 @@
+= Callsigns is a Tropo-powered, speech-based callsign lookup application!
+
+Callsigns uses http://tropo.com to handle phone calls and http://callook.info as the API to lookup data. Check out the recent blog post about it at http://blog.tropo.com/2011/04/06/tropo-powered-hamradio-callsign-lookup-app/.  It uses the Tropo Scripting API and runs entirely in the Tropo cloud using the following communication channels:
+
+Voice and SMS: 1-480-374-3234
+
+Skype: +990009369991489376
+
+VoIP / SIP: sip:9991489376@sip.tropo.com
+
+Phono: app:9991489376
