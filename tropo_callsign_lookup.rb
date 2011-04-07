@@ -69,6 +69,8 @@ loop do
 
 end
 
+say "looking up callsign now."
+
 response = RestClient.get 'http://callook.info/' + callsign + '/json'
 data = JSON.parse(response)
 
